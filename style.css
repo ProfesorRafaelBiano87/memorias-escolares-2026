@@ -243,44 +243,55 @@ main {
   color: #cbd5e1;
 }
 
-/* Área Interativa para Carregar Foto */
+/* Moldura das Fotos (carregadas da pasta img/) */
 .photo-slot {
-  position: relative;
   width: 100%;
-  min-height: 200px;
-  border: 2px dashed rgba(255, 255, 255, 0.22);
+  min-height: 210px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
   border-radius: 12px;
+  padding: 6px;
+  overflow: hidden;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  padding: 16px;
-  cursor: pointer;
-  overflow: hidden;
-  transition: border-color 0.3s ease, background 0.3s ease;
+  background: rgba(9, 13, 22, 0.4);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .photo-slot:hover {
   border-color: var(--neon-cyan);
-  background: rgba(0, 245, 212, 0.05);
+  box-shadow: 0 0 18px rgba(0, 245, 212, 0.18);
 }
 
 .photo-slot img {
   width: 100%;
-  max-height: 280px;
+  height: 240px;
   object-fit: cover;
   border-radius: 8px;
-  display: none;
+  display: block;
+  transition: transform 0.4s ease;
 }
 
-.photo-slot span {
-  font-size: 0.88rem;
+.photo-slot:hover img {
+  transform: scale(1.03);
+}
+
+/* Mensagem exibida caso a foto ainda não tenha sido colocada na pasta img/ */
+.photo-missing {
+  padding: 20px;
+  text-align: center;
+  font-size: 0.85rem;
   color: var(--text-muted);
+  border: 1px dashed rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+  width: 100%;
 }
 
-.photo-slot input[type="file"] {
-  display: none;
+.photo-missing code {
+  display: block;
+  margin-top: 6px;
+  color: var(--neon-cyan);
+  font-size: 0.88rem;
 }
 
 /* Destaque Professor Padrinho */
